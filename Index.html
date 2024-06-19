@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Chat with Assistant</title>
-    <link rel="stylesheet" href="Styling/prism.css">
+    <link rel="stylesheet" href="/Styling/prism.css">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
-<link rel="stylesheet" href="Styling/MainStyle.css">
+<link rel="stylesheet" href="/Styling/MainStyle.css">
 
 </head>
 <body id="mainBody">
@@ -185,7 +185,7 @@ async function run(prompt) {
   return text;
 }
 
-import { prismReturn } from "Scripts/prism.js";
+import { prismReturn } from "/Scripts/prism.js";
 prismReturn();
 //send receive system
 
@@ -195,9 +195,9 @@ let chatWindow= document.querySelector('#chat-window');
   
   //filtering
  
-import { filtering } from "Scripts/module.js";
+import { filtering } from "/Scripts/module.js";
   //end filter 
-  import { commandFinder } from "Scripts/realtimeCommandCheck.js";
+  import { commandFinder } from "/Scripts/realtimeCommandCheck.js";
   
   sendBtn.addEventListener('click', () => {
 let userMsg= input.value.trim();
@@ -472,7 +472,7 @@ function setTheme(){
 
 
  </script>
-  <script  src="Scripts/script.js"></script>
+  <script  src="/Scripts/script.js"></script>
 </body>
 </html>
 
