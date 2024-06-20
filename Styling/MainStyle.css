@@ -517,6 +517,7 @@ canvas {
 .AuthBtn {
 	position: absolute;
 top:50%;
+	height:20px;
 	z-index:100;
   max-width: 320px;
   display: flex;
