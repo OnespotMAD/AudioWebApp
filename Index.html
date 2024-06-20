@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Chat with Assistant</title>
+    <link rel="stylesheet" href="Styling/prism.css">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+<link rel="stylesheet" href="Styling/MainStyle.css">
+
+</head>
+<body id="mainBody">
+	 <div id="loaderWrap">
+<div class="loader">
+	
+
+    <span class ="spLoad" id="sp2"></span>
+     <span class ="spLoad" id="sp3"></span>
+    <span class ="spLoad" id="sp4"></span>
+</div>
+</div>
+
+<!--GoogleScreen-->
+	
+	<div id="googleAuthS">
+				<canvas></canvas>
+				<button class="AuthBtn">
+  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 262">
+  <path fill="#4285F4" d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"></path>
+  <path fill="#34A853" d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"></path>
+  <path fill="#FBBC05" d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"></path>
+  <path fill="#EB4335" d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"></path>
+</svg>
+  Continue with Google
+</button>
+</div>
+	
+	<!--googleS ends-->
+
+<div id="fullbody">
+	 <div class="header">
+	
+            <span class="nav-icon">
+
+<label class="hamburger">
+  <input type="checkbox" id="check">
+  <svg viewBox="0 0 32 32">
+    <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+    <path class="line" d="M7 16 27 16"></path>
+  </svg>
+</label>
+
+</span>
+            <span id="tittle">Assistant</span>
+            <span class="options">
+                
+                <a href="#" class="icon"></a>
+                	<img src="" class="icon" id="profile-picture">
+                <a href="#" class="icon"></a>
+            </span>
+            
+            	<div id="menuHider">
+<div class="menuList">
+  <button class="value">
+    <svg
+      data-name="Layer 2"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="m1.5 13v1a.5.5 0 0 0 .3379.4731 18.9718 18.9718 0 0 0 6.1621 1.0269 18.9629 18.9629 0 0 0 6.1621-1.0269.5.5 0 0 0 .3379-.4731v-1a6.5083 6.5083 0 0 0 -4.461-6.1676 3.5 3.5 0 1 0 -4.078 0 6.5083 6.5083 0 0 0 -4.461 6.1676zm4-9a2.5 2.5 0 1 1 2.5 2.5 2.5026 2.5026 0 0 1 -2.5-2.5zm2.5 3.5a5.5066 5.5066 0 0 1 5.5 5.5v.6392a18.08 18.08 0 0 1 -11 0v-.6392a5.5066 5.5066 0 0 1 5.5-5.5z"
+        fill="#7D8590"
+      ></path>
+    </svg>
+   Profile
+  </button>
+  <button class="value">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="Line">
+      <path
+        d="m17.074 30h-2.148c-1.038 0-1.914-.811-1.994-1.846l-.125-1.635c-.687-.208-1.351-.484-1.985-.824l-1.246 1.067c-.788.677-1.98.631-2.715-.104l-1.52-1.52c-.734-.734-.78-1.927-.104-2.715l1.067-1.246c-.34-.635-.616-1.299-.824-1.985l-1.634-.125c-1.035-.079-1.846-.955-1.846-1.993v-2.148c0-1.038.811-1.914 1.846-1.994l1.635-.125c.208-.687.484-1.351.824-1.985l-1.068-1.247c-.676-.788-.631-1.98.104-2.715l1.52-1.52c.734-.734 1.927-.779 2.715-.104l1.246 1.067c.635-.34 1.299-.616 1.985-.824l.125-1.634c.08-1.034.956-1.845 1.994-1.845h2.148c1.038 0 1.914.811 1.994 1.846l.125 1.635c.687.208 1.351.484 1.985.824l1.246-1.067c.787-.676 1.98-.631 2.715.104l1.52 1.52c.734.734.78 1.927.104 2.715l-1.067 1.246c.34.635.616 1.299.824 1.985l1.634.125c1.035.079 1.846.955 1.846 1.993v2.148c0 1.038-.811 1.914-1.846 1.994l-1.635.125c-.208.687-.484 1.351-.824 1.985l1.067 1.246c.677.788.631 1.98-.104 2.715l-1.52 1.52c-.734.734-1.928.78-2.715.104l-1.246-1.067c-.635.34-1.299.616-1.985.824l-.125 1.634c-.079 1.035-.955 1.846-1.993 1.846zm-5.835-6.373c.848.53 1.768.912 2.734 1.135.426.099.739.462.772.898l.18 2.341 2.149-.001.18-2.34c.033-.437.347-.8.772-.898.967-.223 1.887-.604 2.734-1.135.371-.232.849-.197 1.181.089l1.784 1.529 1.52-1.52-1.529-1.784c-.285-.332-.321-.811-.089-1.181.53-.848.912-1.768 1.135-2.734.099-.426.462-.739.898-.772l2.341-.18h-.001v-2.148l-2.34-.18c-.437-.033-.8-.347-.898-.772-.223-.967-.604-1.887-1.135-2.734-.232-.37-.196-.849.089-1.181l1.529-1.784-1.52-1.52-1.784 1.529c-.332.286-.81.321-1.181.089-.848-.53-1.768-.912-2.734-1.135-.426-.099-.739-.462-.772-.898l-.18-2.341-2.148.001-.18 2.34c-.033.437-.347.8-.772.898-.967.223-1.887.604-2.734 1.135-.37.232-.849.197-1.181-.089l-1.785-1.529-1.52 1.52 1.529 1.784c.285.332.321.811.089 1.181-.53.848-.912 1.768-1.135 2.734-.099.426-.462.739-.898.772l-2.341.18.002 2.148 2.34.18c.437.033.8.347.898.772.223.967.604 1.887 1.135 2.734.232.37.196.849-.089 1.181l-1.529 1.784 1.52 1.52 1.784-1.529c.332-.287.813-.32 1.18-.089z"
+        id="XMLID_1646_"
+        fill="#7D8590"
+      ></path>
+      <path
+        d="m16 23c-3.859 0-7-3.141-7-7s3.141-7 7-7 7 3.141 7 7-3.141 7-7 7zm0-12c-2.757 0-5 2.243-5 5s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z"
+        fill="#7D8590"
+        id="XMLID_1645_"
+      ></path>
+    </svg>
+    Settings
+  </button>
+  <button class="value" id="theme">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+      <path
+        d="m109.9 20.63a6.232 6.232 0 0 0 -8.588-.22l-57.463 51.843c-.012.011-.02.024-.031.035s-.023.017-.034.027l-4.721 4.722a1.749 1.749 0 0 0 0 2.475l.341.342-3.16 3.16a8 8 0 0 0 -1.424 1.967 11.382 11.382 0 0 0 -12.055 10.609c-.006.036-.011.074-.015.111a5.763 5.763 0 0 1 -4.928 5.41 1.75 1.75 0 0 0 -.844 3.14c4.844 3.619 9.4 4.915 13.338 4.915a17.14 17.14 0 0 0 11.738-4.545l.182-.167a11.354 11.354 0 0 0 3.348-8.081c0-.225-.02-.445-.032-.667a8.041 8.041 0 0 0 1.962-1.421l3.16-3.161.342.342a1.749 1.749 0 0 0 2.475 0l4.722-4.722c.011-.011.018-.025.029-.036s.023-.018.033-.029l51.844-57.46a6.236 6.236 0 0 0 -.219-8.589zm-70.1 81.311-.122.111c-.808.787-7.667 6.974-17.826 1.221a9.166 9.166 0 0 0 4.36-7.036 1.758 1.758 0 0 0 .036-.273 7.892 7.892 0 0 1 9.122-7.414c.017.005.031.014.048.019a1.717 1.717 0 0 0 .379.055 7.918 7.918 0 0 1 4 13.317zm5.239-10.131c-.093.093-.194.176-.293.26a11.459 11.459 0 0 0 -6.289-6.286c.084-.1.167-.2.261-.3l3.161-3.161 6.321 6.326zm7.214-4.057-9.479-9.479 2.247-2.247 9.479 9.479zm55.267-60.879-50.61 56.092-9.348-9.348 56.092-50.61a2.737 2.737 0 0 1 3.866 3.866z"
+        fill="#7D8590"
+      ></path>
+    </svg>
+    Theme
+  </button>
+  <button class="value">
+<svg fill="gray" height="20px" width="40px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231.31 231.31" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 231.306 231.306" stroke="#000000" stroke-width="0.00231306"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M229.548,67.743L163.563,1.757C162.438,0.632,160.912,0,159.32,0H40.747C18.279,0,0,18.279,0,40.747v149.813 c0,22.468,18.279,40.747,40.747,40.747h149.813c22.468,0,40.747-18.279,40.747-40.747V71.985 C231.306,70.394,230.673,68.868,229.548,67.743z M164.32,19.485l47.5,47.5h-47.5V19.485z M190.559,219.306H40.747 C24.896,219.306,12,206.41,12,190.559V40.747C12,24.896,24.896,12,40.747,12H152.32v60.985c0,3.313,2.687,6,6,6h60.985v111.574 C219.306,206.41,206.41,219.306,190.559,219.306z"></path> <path d="m103.826,52.399c-5.867-5.867-13.667-9.098-21.964-9.098s-16.097,3.231-21.964,9.098c-5.867,5.867-9.098,13.667-9.098,21.964 0,8.297 3.231,16.097 9.098,21.964l61.536,61.536c7.957,7.956 20.9,7.954 28.855,0 7.955-7.956 7.955-20.899 0-28.855l-60.928-60.926c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l60.927,60.927c3.276,3.276 3.276,8.608 0,11.884s-8.607,3.276-11.884,0l-61.536-61.535c-3.601-3.601-5.583-8.388-5.583-13.479 0-5.092 1.983-9.879 5.583-13.479 7.433-7.433 19.525-7.433 26.958,0l64.476,64.476c11.567,11.567 11.567,30.388 0,41.955-5.603,5.603-13.053,8.689-20.977,8.689s-15.374-3.086-20.977-8.689l-49.573-49.574c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l49.573,49.573c7.87,7.87 18.333,12.204 29.462,12.204s21.593-4.334 29.462-12.204 12.204-18.333 12.204-29.463c0-11.129-4.334-21.593-12.204-29.462l-64.476-64.476z"></path> </g> </g></svg>
+ Documentation
+  </button>
+  </button>
+  <button class="value" id="signOut">
+SignOut
+ </button>
+</div>
+</div>
+            
+        </div>
+        
+        
+        <div id="chatWindowHandler">
+<div id="chat-window">
+	
+</div>
+</div>
+	
+	   <div id="operatorWindow">
+		
+	<button id="recorderBtn">
+<svg id ="mic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+<defs>
+</defs>
+<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+	<path d="M 45 70.968 c -16.013 0 -29.042 -13.028 -29.042 -29.042 c 0 -1.712 1.388 -3.099 3.099 -3.099 c 1.712 0 3.099 1.388 3.099 3.099 C 22.157 54.522 32.404 64.77 45 64.77 c 12.595 0 22.843 -10.248 22.843 -22.843 c 0 -1.712 1.387 -3.099 3.099 -3.099 s 3.099 1.388 3.099 3.099 C 74.042 57.94 61.013 70.968 45 70.968 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+	<path d="M 45 60.738 L 45 60.738 c -10.285 0 -18.7 -8.415 -18.7 -18.7 V 18.7 C 26.3 8.415 34.715 0 45 0 h 0 c 10.285 0 18.7 8.415 18.7 18.7 v 23.337 C 63.7 52.322 55.285 60.738 45 60.738 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+	<path d="M 45 89.213 c -1.712 0 -3.099 -1.387 -3.099 -3.099 V 68.655 c 0 -1.712 1.388 -3.099 3.099 -3.099 c 1.712 0 3.099 1.387 3.099 3.099 v 17.459 C 48.099 87.826 46.712 89.213 45 89.213 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+	<path d="M 55.451 90 H 34.549 c -1.712 0 -3.099 -1.387 -3.099 -3.099 s 1.388 -3.099 3.099 -3.099 h 20.901 c 1.712 0 3.099 1.387 3.099 3.099 S 57.163 90 55.451 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+</g>
+</svg>
+</button>
+
+ <div class="messageBox">
+  <input required="" placeholder="Type someth..." type="text" id="messageInput" />
+  
+  <button id="sendButton">
+  <div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+      >
+        <path fill="none" d="M⁶0 0h24v24H0z"></path>
+        <path
+          fill="currentColor"
+          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+</button>
+
+</div>
+</div>
+
+</div>
+    	<script type="importmap">
+  {
+    "imports": {
+      "@google/generative-ai": "https://esm.run/@google/generative-ai"
+    }
+  }
+</script>
+  <script type="module">
+      import { GoogleGenerativeAI } from "@google/generative-ai";
+
+
+      const API_KEY = "AIzaSyDEuZMTdL6XLK72COXkwArQnDx6e9zZ02g";
+
+      
+      const genAI = new GoogleGenerativeAI(API_KEY);
+
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+
+async function run(prompt) {
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  const text = response.text();
+  console.log(text);
+  return text;
+}
+
+import { prismReturn } from "./Scripts/prism.js";
+prismReturn();
+//send receive system
+
+let chatWindow= document.querySelector('#chat-window');
+  let input=document.querySelector('#messageInput');
+  let sendBtn=document.querySelector('#sendButton');
+  
+  //filtering
+ 
+import { filtering } from "./Scripts/module.js";
+  //end filter 
+  import { commandFinder } from "./Scripts/realtimeCommandCheck.js";
+  
+  sendBtn.addEventListener('click', () => {
+let userMsg= input.value.trim();
+if (userMsg !== '') {
+
+const userMsgEl = document.createElement('div');
+        userMsgEl.classList.add('message','user-message');
+        userMsgEl.innerHTML = `<span class="sp spU">${userMsg}</span>`;
+        chatWindow.appendChild(userMsgEl);
+        
+        // Clear the input
+        input.value = '';
+        
+        // Scroll to bottom
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+   setTimeout(function (){
+      const botMsgEl = document.createElement('div');
+            botMsgEl.classList.add('message','bot-message');
+            botMsgEl.innerHTML = `<span id="textForspeech"></span>`;
+            chatWindow.appendChild(botMsgEl);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+if(commandFinder(userMsg)==false){
+	executBot(userMsg,botMsgEl);
+	
+	}else if(commandFinder(userMsg)==true){
+  
+  }
+  },300);
+  
+}
+
+});
+
+
+async function executBot(userMsg,botMsgEl){
+	let geminiRes= await run(userMsg);
+	let finalText=filtering(geminiRes);
+	  botMsgEl.innerHTML = `<span class="sp spB">${finalText}</span>`;
+	}
+
+let ftLoader= document.querySelector('#loaderWrap');
+let fullbody= document.querySelector('#fullbody');
+let googleAuthScreen= document.querySelector('#googleAuthS');
+
+setTimeout(()=>{
+setTimeout(()=>{
+	ftLoader.style.transition="opacity 1s linear";
+ftLoader.style.display="none";
+//fullbody.style.display="flex";
+googleAuthScreen.style.display="flex";
+},500);
+},2000);
+
+let menuHider= document.querySelector('#menuHider');
+let checkBox= document.querySelector('#check');
+let menuBtn=document.querySelector('.value');
+let menuClicked=false;
+
+checkBox.addEventListener('change',()=>{
+if(menuClicked===true){
+	menuHider.style.display="none";
+
+menuClicked=false;
+}else if(menuClicked===false){
+	menuHider.style.display="flex";
+	
+	menuClicked=true;
+	}
+	
+})
+
+
+//Google Screen starts
+
+
+const btn = document.querySelector('.AuthBtn');
+	const RecordingButton = document.getElementById('recorderBtn');
+        const googleAuthS = document.getElementById('googleAuthS');
+               const userPic = document.getElementById('profile-picture');
+        const display = document.getElementById('fullbody');
+  
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+
+  import { 
+GoogleAuthProvider ,
+getAuth, 
+signInWithPopup,
+signOut
+} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+
+
+import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-storage.js";
+
+  const firebaseConfig = {
+    apiKey:"AIzaSyBzPDZtlWncz1BxsMNxnrFlagCGeM9UZn0",
+    authDomain: "audio-webapp.firebaseapp.com",
+    projectId: "audio-webapp",
+    storageBucket: "audio-webapp.appspot.com",
+    messagingSenderId: "739416714318",
+    appId: "1:739416714318:web:4c0db970ac76a2e0ad671f"
+  };
+  
+
+  const app = initializeApp(firebaseConfig);
+  const provider = new GoogleAuthProvider(app);
+  const auth = getAuth();
+  
+  const storageBucket = firebaseConfig.storageBucket;
+  var userReturnName;
+  
+  let signed=false;
+  
+  btn.addEventListener("click",abc);
+  
+  function abc(){
+signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+    
+    // User information
+   userReturnName= user.displayName;
+   
+    userPic.src=user.photoURL;
+    
+    googleAuthS.style.display="none";
+    signed=true;
+    RecordingButton.disabled=false;
+    fullbody.style.display="block";
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+    alert(errorMessage);
+  });
+ }
+  
+  
+  let recordInstruction=false;
+  
+  if(recordInstruction==true){
+  const storage = getStorage(app);
+
+        let recorder;
+        let audioChunks = [];
+        
+        let recorderOn=false;
+
+        RecordingButton.addEventListener('click', () => { 
+if(recorderOn===false){
+	
+startRecording();
+recorderOn=true;
+}else if(recorderOn===true){
+	
+stopRecording();
+recorderOn=false;
+}
+});
+
+        async function startRecording() {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            recorder = new MediaRecorder(stream);
+            recorder.ondataavailable = e => audioChunks.push(e.data);
+            recorder.onstop = saveRecording;
+       
+            recorder.start();
+        }
+
+        function stopRecording() {
+            recorder.stop();
+            
+        }
+
+        async function saveRecording() {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+
+            // Upload to Firebase Storage
+            const audioFileName = 'audio_' +userReturnName+'_'+Date.now() + '.wav';
+            const audioRef = ref(storage, audioFileName);
+            await uploadBytes(audioRef, audioBlob);
+            
+
+           // imppppppp** const audioURL = `https://storage.googleapis.com/${storageBucket}/${audioFileName}`;
+
+            // Clear audioChunks for next recording
+            audioChunks = [];
+        }
+        }
+        
+        
+//Google Screen ends
+
+//speech recognition 
+
+const recognition =  new webkitSpeechRecognition();
+recognition.lang = 'en-US';
+recognition.interimResults = true;
+recognition.continuous = true;
+
+let btnStart=false;
+
+RecordingButton.addEventListener('click',()=>{
+	if(btnStart==false){
+	btnStart=true;
+	}else if(btnStart==true){
+		btnStart=false;
+		}
+		
+record();
+	});
+	
+	let focusHandler= document.querySelector('#operatorWindow');
+function record(){
+if(btnStart==false){
+	recognition.stop();
+	sendBtn.click();
+	focusHandler.click();
+	}else if(btnStart==true){
+		recognition.start();
+		}
+	}
+	
+recognition.onresult = event => {
+input.value = event.results[event.results.length - 1][0].transcript;
+navigator.mediaDevices.getUserMedia({ audio: true });
+}
+
+
+let themeBtn = document.querySelector('#theme');
+let spU=document.querySelector('.spU');
+let spB=document.querySelector('.spB');
+let theme = "default";
+
+themeBtn.addEventListener('click', () => {
+if(theme=="default"){
+	theme="second";
+	}else if(theme=="second"){
+		theme="default";
+		}
+		setTheme();
+});
+
+let colorTwo;
+let colorOne;
+function setTheme(){
+	if (spB !== null && spU !== null) {
+
+	if(theme=="default"){
+	colorOne="#FBF8F3";
+	colorTwo="#232323";
+		
+	}else if(theme=="second"){
+		colorOne="#AFC9DC";
+		colorTwo="#F2F4F6";
+		
+			}
+		}
+	}
+	
+
+
+ </script>
+  <script  src="./Scripts/script.js"></script>
+</body>
+</html>
+
