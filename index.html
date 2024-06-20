@@ -170,7 +170,7 @@ SignOut
       import { GoogleGenerativeAI } from "@google/generative-ai";
 
 
-      const API_KEY = "AIzaSyDEuZMTdL6XLK72COXkwArQnDx6e9zZ02g";
+      const API_KEY = process.env.GEMINI_API_KEY;
 
       
       const genAI = new GoogleGenerativeAI(API_KEY);
@@ -293,7 +293,7 @@ signOut
 import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-storage.js";
 
   const firebaseConfig = {
-    apiKey:"AIzaSyBzPDZtlWncz1BxsMNxnrFlagCGeM9UZn0",
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: "audio-webapp.firebaseapp.com",
     projectId: "audio-webapp",
     storageBucket: "audio-webapp.appspot.com",
