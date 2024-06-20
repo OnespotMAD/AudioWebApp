@@ -455,6 +455,7 @@ canvas {
   height: 100%;
   position: absolute;
   z-index:0;
+	bottom:0px;
 }
 
 [class^="letter"] {
