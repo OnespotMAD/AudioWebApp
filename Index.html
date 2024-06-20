@@ -243,14 +243,14 @@ let ftLoader= document.querySelector('#loaderWrap');
 let fullbody= document.querySelector('#fullbody');
 let googleAuthScreen= document.querySelector('#googleAuthS');
 
-setTimeout(()=>{
+window.addEventListener("load", ()=>{
 setTimeout(()=>{
 	ftLoader.style.transition="opacity 1s linear";
 ftLoader.style.display="none";
 //fullbody.style.display="flex";
 googleAuthScreen.style.display="flex";
 },500);
-},2000);
+});
 
 let menuHider= document.querySelector('#menuHider');
 let checkBox= document.querySelector('#check');
