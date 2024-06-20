@@ -434,9 +434,8 @@ font-weight:900;
 			}
 			
 			/*Google s*/
-			
-			  	#googleAuthS{
-  	display:none;
+#googleAuthS{
+  	display:flex;
   align-items:center;
   justify-content:center;
   	margin:0px;
