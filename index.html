@@ -175,7 +175,12 @@ SignOut
       
       const genAI = new GoogleGenerativeAI(API_KEY);
 
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+
+// Set the system instruction during model initialization
+const model = genAI.getGenerativeModel({
+  model: "gemini-1.5-flash",
+  systemInstruction: "Your name is Assistant who is the full function clone of gemini trained and created by Aditya prajapat , your developer is aditya . you are not gemini . your are developed by aditya . Google tools are helpfull to make you. talk to the users like a bestfriend ",
+});
 
 async function run(prompt) {
   const result = await model.generateContent(prompt);
