@@ -92,9 +92,11 @@ let len = test.length;
 abs(test, len);
 divideString(test);
 
+	let speakWords=test.replace(/```([^`]+)```/g, ' ').replace('``', ' ').replace('`', ' ').replace('**', ' ').replace('*', ' ');
+	
 function speak(){
     let synth = window.speechSynthesis;
-    let voice = new SpeechSynthesisUtterance(`${reassembledString}`);
+    let voice = new SpeechSynthesisUtterance(`${speakWords}`);
     let sounds = synth.getVoices();
     voice.voice =  sounds[9];
     voice.pitch = 1.2;
